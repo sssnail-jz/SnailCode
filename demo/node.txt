@@ -1,0 +1,7 @@
+linux mongodb 启动：
+	启动：mongod -f /usr/local/mongodb/mongodbserver/bin/mongodb.conf
+	关闭：mongod --shutdown -f /usr/local/mongodb/mongodbserver/bin/mongodb.conf
+	如果字段不存在就插入：db.articles.update({},{$set:{"label":"QT"}},{upsert:false,multi:true})
+	
+命令挂载：
+	ln -s /usr/local/node/node-v16.13.0-linux-x64/bin/pm2 /usr/local/bin/pm2

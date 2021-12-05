@@ -1,0 +1,18 @@
+@url=http://localhost:2000
+@json=Content-Type: application/json
+
+
+###
+get {{url}}
+
+###
+post {{url}}/register
+{{json}}
+
+{
+	"username": "jack",
+	"password": "123456"
+}
+
+###
+post {{url}}/login

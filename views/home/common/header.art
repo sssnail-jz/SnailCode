@@ -1,0 +1,55 @@
+<!-- 头部框架开始 -->
+	<div class="index-header">
+		<div class="header-content">
+			<!-- 网站logo开始 -->
+			<h1 class="logo logo-left">
+				<a href="/home/"><img src="/images/logo.png" alt="哲"></a>
+			</h1>
+			<!-- 网站logo结束 -->
+			<!-- 网站导航开始 -->
+			<ul class="navigation navigation-right">
+				{{if articleNew == null && userInfo && articleMod == null}}
+					<li id = "li-write-article">
+						<a href="/home/article-new">发表文章</a>
+					</li>
+				{{/if}}
+				{{if articleNew}}
+					<li id = "li-write-article">
+						<a href="#" 
+						onclick="document.getElementById('form-container').submit();return false;">发布</a>
+					</li>
+				{{/if}}
+				{{if articleMod}}
+					<li id = "li-write-article">
+						<a href="#" 
+						onclick="document.getElementById('form-container').submit();return false;">修改</a>
+					</li>
+				{{/if}}
+				<li id = "li-login">
+					<a href="/home/">
+						<img style = "margin-top: 2px;" width="54" height="54" class="author-avatar" alt="author avatar" src="{{userInfo.avatar_url}}">
+					</a>
+					<div id = "login-menu-wraper">
+						<ul>
+							<li style="width: 106px;">
+								<!-- 这里 将 id 转换为 ObjectId 在进行比较 -->
+								<a href="/home/userinfo">管理</a>
+							</li style="width: 92px;">
+							<li>
+								<a href="/admin/logout"> 退出 </a>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<!-- 网站导航结束 -->
+		</div>
+	</div>
+	<!--
+		{{if userinfoshow == null}}
+			<div style = "padding:0; margin:0;">
+				<img src = "images/background.png" style = "width: 100%;">
+			</div>
+		{{/if}}
+	-->
+<!-- 头部框架结束 -->

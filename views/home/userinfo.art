@@ -1,0 +1,171 @@
+{{extend './common/layout.art'}}
+
+{{block 'css'}}
+	<link rel="stylesheet" href="/snail-common.css">
+	<link rel="stylesheet" href="/lib/ckeditor/plugins/codesnippet/lib/highlight/styles/github.css">
+	<link rel="stylesheet" href="/lib/icomoon/style.css">
+	<link rel="stylesheet" href="/home/css/userinfo.css">
+{{/block}}
+
+{{block 'main'}}
+
+	{{include './common/header.art'}}
+	
+	<div class = "index-content clearfix">
+		<!-- 文章框架开始 -->
+		<div class="article-small">
+		 	<ul class = "article-small-ul">
+				{{each articles}}
+					<li class = "article-small-li">
+						<div class="container">
+							<div class="article-header">
+								<a class="article-title" href="/home/article?id={{$value._id.toString()}}">{{$value.title}}</a>
+								<div class="article-info">
+									<span>{{$value.publishDate}}</span>
+									<a id="float-left-label" style="float:left; cursor:pointer;" href="/home/userinfo?id={{userInfo_._id.toString()}}&label={{$value.label}}">
+										<i class="icon-hammer"></i>
+										{{$value.label}}
+									</a>
+									
+									<a id="float-right-comment-count" rel="nofollow" href="/home/article?id={{$value._id.toString()}}&newcommentflags=true">
+										<i class="icon-bubbles"></i>（{{$value.commentCount}}）
+									</a>
+									<a id="float-right-like-count" rel="like" href="/home/article?id={{$value._id.toString()}}">
+										<i class="icon-like"></i>（{{$value.like}}）
+									</a>
+									{{if userInfo}}
+										{{if onlineUserFlags == true}}
+											<a class = "article-del" href = "/home/article-del?id={{@$value._id.toString()}}">删除</a>
+											<a class = "article-mod" href = "/home/article-mod?id={{@$value._id.toString()}}">修改</a>
+										{{/if}}
+									{{/if}}
+								</div>
+							</div>
+							<div class="article-content">
+								<span>{{@$value.content}}</span>
+							</div>
+							<div class = "more-div"></div>
+							<div class = "more-text";>
+								<a href="/home/article?id={{$value._id.toString()}}">[More]
+								</a>
+							</div>
+						</div>
+					</li>
+				{{/each}}
+				<!-- 分页开始 -->
+				<div class="page-switch">
+					{{if pageinfo.page > 1}}
+						<a href="/home/userinfo?id={{userInfo_._id.toString()}}&page={{pageinfo.page - 1}}">
+							上一页
+						</a>
+					{{/if}}
+					<% for(var i = 0; i < pageinfo.display.length; i++) { %>
+						<a class="{{pageinfo.page == pageinfo.display[i]? 'active' : 'noactive'}}" href="/home/userinfo?id={{userInfo_._id.toString()}}&page={{pageinfo.display[i]}}">{{pageinfo.display[i]}}</a>
+					<% } %>
+					{{if pageinfo.page < pageinfo.pages}}
+						<a href="/home/userinfo?id={{userInfo_._id.toString()}}&page={{pageinfo.page - 0 + 1}}">
+							下一页
+						</a>
+					{{/if}}
+				</div>
+			</ul>
+		</div>
+		<!-- 文章框架结束 -->
+		
+		<!-- 右侧信息栏 -->
+		<div class = "right-container">
+			<div class = "article-right-userinfo">
+				<img class="blog-logo" src="{{userInfo_.avatar_url}}" alt="">
+				<div class="blog-author">
+					<span style = "color: black">{{userInfo_.login}}</span>
+				</div>
+				<div class = "blog-msg">
+					<span>
+						<a href = "{{userInfo_.html_url}}">{{userInfo_.html_url}}</a>
+					</span>
+				</div>
+				<ul class="social-network">
+					<li style="display: inline-block;">
+						<a href="#" title="主页">
+							<i class="icon-home"></i>
+						</a>
+					</li>
+					<li style="display: inline-block;">
+						<a target="_blank" href="#" title="用户信息">
+							<i class="icon-info"></i>
+						</a>
+					</li>
+					<li id="addQQ" style="display: inline-block;">
+						<a href="#" title="添加 QQ 好友">
+							<i class="icon-qq"></i>
+						</a>
+					</li>
+					<li id="addFriend" style="display: inline-block;">
+						<a target="_blank" href="#" title="添加好友">
+							<i class="icon-plus"></i>
+						</a>
+					</li>
+					<li id="sendMsg" style="display: inline-block;">
+						<a href="#" target="_blank" title="发送消息">
+							<i class="icon-envelop"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<form method = "get" action="#" class="form-search">
+				<input name="q" type="text" placeholder="搜索...">
+				<button type="submit" class="button-search">搜索</button>
+			</form>
+			<div class = "type-list">
+				<h4>分类</h4>
+					<div class = "widget-content">
+						<ul>
+							<li>
+								<a href = "/home/userinfo?id={{userInfo_._id.toString()}}&label=C%23">
+									<span class="icon-hammer"></span>
+									C#
+								</a>
+							</li>
+							<li>
+								<a href = "/home/userinfo?id={{userInfo_._id.toString()}}&label=C/CPP">
+									<span class="icon-hammer"></span>
+									C/CPP
+								</a>
+
+							</li>
+							<li>
+								<a href = "/home/userinfo?id={{userInfo_._id.toString()}}&label=QT">
+									<span class="icon-hammer"></span>
+									QT
+								</a>
+							</li>
+							<li>
+								<a href = "/home/userinfo?id={{userInfo_._id.toString()}}&label=HTML/CSS/JS">
+									<span class="icon-hammer"></span>
+									HTML/CSS/JS
+								</a>
+							</li>
+							<li>
+								<a href = "/home/userinfo?id={{userInfo_._id.toString()}}&label=AJAX">
+									<span class="icon-hammer"></span>
+									AJAX
+								</a>
+							</li>
+							<li>
+								<a href = "/home/userinfo?id={{userInfo_._id.toString()}}&label=NodeJS">
+									<span class="icon-hammer"></span>
+									NodeJS
+								</a>
+							</li>
+						</ul>
+					</div>
+			</div>
+		</div>
+	</div>
+	
+{{/block}}
+
+{{block 'script'}}
+	<script src="/lib/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+{{/block}}

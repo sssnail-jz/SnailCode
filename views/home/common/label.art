@@ -1,0 +1,43 @@
+<div class = "type-list">
+<h4>分类</h4>
+	<div class = "widget-content">
+		<ul>
+			<li>
+				<a href = "/home?label=C%23">
+					<span class="icon-hammer"></span>
+					C#
+				</a>
+			</li>
+			<li>
+				<a href = "/home?label=C/CPP">
+					<span class="icon-hammer"></span>
+					C/CPP
+				</a>
+			</li>
+			<li>
+				<a href = "/home?label=QT">
+					<span class="icon-hammer"></span>
+					QT
+				</a>
+			</li>
+			<li>
+				<a href = "/home?label=HTML/CSS/JS">
+					<span class="icon-hammer"></span>
+					HTML/CSS/JS
+				</a>
+			</li>
+			<li>
+				<a href = "/home?label=AJAX">
+					<span class="icon-hammer"></span>
+					AJAX
+				</a>
+			</li>
+			<li>
+				<a href = "/home?label=NodeJS">
+					<span class="icon-hammer"></span>
+					NodeJS
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

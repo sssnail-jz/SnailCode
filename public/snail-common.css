@@ -1,0 +1,365 @@
+body{
+	font-size: 14px;
+}
+
+/********************/
+.right-container{
+	padding: 0;
+	border: 0;
+	position: relative;
+}
+/********************/
+
+/********************/
+.form-search{
+	width: 290px;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	padding: 0;
+}
+
+.form-search input{
+	width: 190px;
+	height: 100%;
+	border: 0;
+	position: absolute;
+	left: 0;
+
+	/* 拷贝过来的属性 */
+    padding-left: 10px;
+    font-size: 14px;
+
+	color: inherit;
+    font: inherit;
+	border-radius: .25rem;
+}
+
+.form-search button{
+	width: 80px;
+	height: 100%;
+	border: 0;
+	position: absolute;
+	right: 0;
+
+	/* 拷贝过来的属性 */
+	font-weight: 400;
+	text-align: center;
+    white-space: nowrap;
+	vertical-align: middle;
+	font-size: 1rem;
+    line-height: 1.5;
+	color: #fff;
+    background-color: #dc3545;
+	border-radius: .25rem;
+	
+}
+/********************/
+
+/********************/
+.type-list{
+	width: 290px;
+	position: absolute;
+	right: 0;
+	background-color: white;
+}
+
+.author-list h4,
+.type-list h4{
+	margin: 0;
+    color: #111;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 14px 20px 13px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.widget-content li{
+	margin: 8px 20px;
+	display: list-item;
+    text-align: -webkit-match-parent;
+    padding: 6px 0;
+}
+
+.widget-content a{
+	cursor: pointer;
+}
+/********************/
+
+/********************/
+.article-right-userinfo{
+	width: 290px;
+	height: 300px;
+	position: absolute;
+	right: 0;
+	padding: 0;
+	background: #FFF;
+}
+
+.blog-logo {
+    display: block;
+    margin: 0 auto;
+    width: 8rem;
+	height: 8rem;
+    border-radius: 100%;
+    border-style: none;
+	margin-top: 20px;
+}
+
+.blog-author {
+    padding: 0 2rem;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+	text-align: center;
+}
+
+.blog-msg{
+	padding-left: 2rem;
+	padding-right: 2rem;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.blog-msg span{
+	line-height: 50px;
+}
+
+.blog-msg a{
+	display: inline-block;
+	height: 50px;
+	cursor: pointer;
+	color: blue;
+	overflow: hidden;
+}
+
+.blog-msg a:hover{
+	color: black;
+}
+
+.social-network{
+	list-style: none;
+    padding: 6px 0;
+    margin: 0;
+	text-align: center;
+	font-size: 20px;
+}
+
+.social-network li{
+	margin-right: 8px;
+}
+/********************/
+
+/********************/
+.icon-hammer,
+.icon-bubbles,
+.icon-home,
+.icon-info,
+.icon-like,
+.icon-qq,
+.icon-plus,
+.icon-user,
+.icon-enveop{
+	content: "\e996";
+}
+/********************/
+
+/********************/
+#float-right-like-count,
+#float-right-comment-count{
+	color: black;
+}
+
+#float-right-like-count:hover,
+#float-right-comment-count:hover{
+	cursor: pointer;
+	color: #dc3545;
+}
+/********************/
+
+/********************/
+.index-content{
+	margin: 0px, 0px;
+	margin-top: 20px;
+	padding-left: 165px;
+	padding-right: 165px;
+	position: relative;
+}
+
+.article-header{
+	padding-bottom: 20px;
+}
+
+.article-content{
+	border-top: 1px solid #eee;
+}
+
+.article-small-ul{
+	float: left;
+}
+
+.article-small-li {
+	width: 800px;
+	height: 680px;
+	background: #FFF;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.article-small .article-content{
+	width: 100%;
+	height: 560px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 40px;
+	font-size: 14px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.container{
+	position: relative;
+}
+
+.more-div{
+	height: 130px;
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	background: -webkit-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
+}
+
+.more-text{
+	width: 100%;
+	text-align:center;
+	font-size:150%;
+
+	position:absolute;
+	z-index: 999;
+	bottom: -44px;
+}
+/********************/
+
+/********************/
+.article-title,
+.article-header a,
+.more-text a,
+#float-left-username,
+#float-left-label{
+	color: red;
+}	
+
+.article-title{
+	display: inline-block;
+}
+
+.article-title:hover,
+.article-header a:hover, 
+.more-text a:hover,
+#float-left-username:hover,
+#float-left-label:hover{
+	cursor: pointer;
+	color: black;
+}
+/********************/
+
+/********************/
+.page-switch{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.page-switch a {
+	display: inline-block;
+	border-radius: .25rem;
+	color: black;
+	font-size: 14px;
+	padding: 10px;
+	margin: 0 10px;
+}
+
+.page-switch .active {
+	background-color: #ff7300;
+}
+/********************/
+
+/********************/
+/* 让文章内部的 ul 显示和 ckeditor 里一致 */
+.article-content ul{
+	list-style: disc;
+	display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+	margin-right: 0px;
+    padding: 0 40px;
+}
+
+.article-content pre{
+	overflow-x:scroll;
+}
+
+.article-content blockquote {
+	font-style: italic;
+	font-family: Georgia, Times, "Times New Roman", serif;
+    padding-left: 20px;
+    padding-right: 8px;
+    padding-top: 2px;
+	padding-bottom: 2px;
+
+    border-style: solid;
+    border-color: #fff;
+	border-left-color: #ccc;
+    border-width: 5px;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+.article-content blockquote p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.article-content ol, 
+.article-content ul, 
+.article-content dl {
+    margin-right: 0px;
+
+}
+.article-content ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.article-content p{
+	display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+/********************/

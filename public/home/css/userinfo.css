@@ -1,0 +1,53 @@
+
+.clearfix::before,
+.clearfix::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/********************/
+.article-right-userinfo{
+	top: 0px;
+}
+
+.form-search{
+	margin-top: 20px;
+	top: 300px;
+}
+
+.type-list{
+	top: 390px;
+}
+/********************/
+
+/********************/
+#float-right-like-count,
+#float-right-comment-count{
+	color: black;
+	text-decoration: none;
+	float: right;
+	margin-left: 5px;
+}
+
+#float-right-like-count{
+	margin-left: 15px;
+}
+
+#float-right-like-count:hover
+#float-right-comment-count:hover{
+	color: #dc3545;
+}
+
+.article-header a:hover,
+.more-text a:hover{
+	text-decoration: underline;
+}
+
+.article-mod,
+.article-del{
+	font-size: 14px;
+	margin-left: 10px;
+	float: right;
+}
+/********************/

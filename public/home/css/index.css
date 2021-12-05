@@ -1,0 +1,60 @@
+.clearfix::before,
+.clearfix::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/********************/
+.form-search{
+	top:0px;
+}
+
+.type-list{
+	top: 70px;
+}
+
+.author-list{
+	width: 290px;
+	height: 500px;
+
+	position: absolute;
+	right: 0;
+	top: 383px;
+
+	background-color: white;
+	overflow: hidden;
+}
+
+.author-list li{
+	position: relative;
+	height: 32px;
+}
+
+.author-avatar{
+	border-radius: 100%;
+}
+
+.author-name{
+	display: inline-block;
+	line-height: 32px;
+	margin-left: 10px;
+	position: absolute;
+	font-size: 14px;
+}
+/********************/
+
+/********************/
+.article-title:hover,
+.more-text a:hover,
+#float-left-username:hover,
+#float-left-label:hover{
+	text-decoration: underline;
+}
+
+#float-right-like-count,
+#float-right-comment-count{
+	float:right; 
+	margin-left: 5px;
+}
+/********************/

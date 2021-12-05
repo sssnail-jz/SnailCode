@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉</title>
+    <style>
+        .submenu >ul{
+            display: none;
+        }
+        .open>ul{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="sidebar">
+    <ul>
+        <li class="submenu">
+            <a>首页</a>
+            <ul>
+                <li><a>首页内容1</a></li>
+                <li><a>首页内容2</a></li>
+                <li><a>首页内容3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a>内容</a>
+        </li>
+        <li class="submenu">
+            <a>新闻</a>
+            <ul >
+                <li><a>新闻1</a></li>
+                <li><a>新闻2</a></li>
+                <li><a>新闻3</a></li>
+                <li><a>新闻4</a></li>
+                <li><a>新闻5</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+<script src="../../publicjs/jquery-1.8.3.min.js"></script>
+<script>
+    $(function () {
+        $('.submenu>a').click(
+            function (e) {
+                e.preventDefault();//阻止点击a的默认动作
+                var li = $(this).parents('li');
+                var li_s = $('#sidebar .submenu');//所有.submenu的li目录
+                var ul_s = $('#sidebar .submenu >ul');//所有.submenu 的下级ul目录
+                var ul = $(this).siblings('ul');//遍历a元素的兄弟元素（限制为ul）
+                if (li.hasClass('open')){  //假如点击的那个链接有open类，那么下拉菜单向上滑动，移除open类
+                    ul.slideUp();
+                    li.removeClass('open');
+                }else{ //假如点击的那个链接没有open类，首先对所有的下拉菜单都让其收起来。然后点击的那个下拉，所有的li目录移除open类，点击的那个添加open类
+                    ul_s.slideUp();
+                    ul.slideDown();
+                    li_s.removeClass('open')
+                    li.addClass('open')
+                }
+            }
+        )
+    })
+</script>
+</body>
+</html>

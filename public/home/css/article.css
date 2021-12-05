@@ -1,0 +1,157 @@
+.clearfix::before,
+.clearfix::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/********************/
+.article-left-main{
+	float: left;
+	width: 800px;
+	background: #FFF;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	margin-bottom: 20px;
+}
+
+.article-left-main .article-content{
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 40px;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+/********************/
+
+.article-right-userinfo{
+	top: 0px;
+}
+
+.form-search{
+	top: 320px;
+}
+
+.type-list{
+	top: 390px;
+}
+/********************/
+
+/********************/
+.article-comment{
+	padding-right: 20px;
+}
+
+.article-comment h4 {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.article-comment .comment {
+	width: 100%;
+	height: 60px;
+	display: block;
+}
+
+.comment-form {
+	margin-top: 15px;
+}
+
+.comment-form .items {
+	overflow: hidden;
+	margin: 10px 0;
+}
+
+.comment-form .items span,
+.comment-form .items input[type="text"] {
+	height: 22px;
+	line-height: 22px;
+}
+
+.comment-form .items span {
+	float: left;
+	width: 40px;
+}
+
+.comment-form .items input[type="text"] {
+	float: left;
+	width: 300px;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+}
+
+.comment-form .items input[type="submit"] {
+	width: 100px;
+	height: 26px;
+	cursor: pointer;
+}
+
+.comment-list {
+	margin-top: 30px;
+}
+
+.comment-list a{
+	cursor: pointer;
+	color: #ff7300;
+}
+
+.comment-list a:hover{
+	color: black;
+}
+
+.comment-header{
+	position: relative;
+}
+
+.comment-header-login,
+.comment-header-url
+{
+	display: inline-block;
+	position: absolute;
+	left: 60px;
+}
+
+.comment-header-login{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.comment-header-time{
+	font-size: 10px;
+	margin-left: 60px;
+	color: gray;
+}
+
+.comment-header-url{
+	font-size: 13px;
+	margin-top: 20px;
+}
+
+.comment-footer-del{
+	margin-left: 5px;
+	cursor: pointer;
+	color: #ff7300;
+}
+
+.comment-content {
+	background-color:gainsboro ;
+	margin-left: 60px;
+	font-size: 16px;
+}
+/********************/
+
+/********************/
+.like-wraper{
+	text-align: center;
+}
+
+#like{
+	display: inline-block;
+	font-size:66px;  
+	color:gray; 
+	cursor:pointer;
+}
+/********************/

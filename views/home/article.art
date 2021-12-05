@@ -1,0 +1,177 @@
+{{extend './common/layout.art'}}
+
+{{block 'css'}}
+	<link rel="stylesheet" href="/home/css/base.css">
+	<link rel="stylesheet" href="/snail-common.css">
+	<link rel="stylesheet" href="/home/css/article.css">
+	<link rel="stylesheet" href="/lib/ckeditor/plugins/codesnippet/lib/highlight/styles/github.css">
+	<link rel="stylesheet" href="/lib/icomoon/style.css">
+	<script>
+		window.location ="#to-footer";
+	</script>
+{{/block}}
+
+{{block 'main'}}
+
+	{{include './common/header.art'}}
+		<div class="index-content clearfix">
+			<div class = "article-left-main">
+				<div class="article-header">
+					<h3 class="article-title">{{article.title}}</h3>
+					<div class="article-info">
+						<span class="author">
+							<i class="icon-user"></i>
+							{{article.authorlogin}}
+						</span>
+						<span>{{article.publishDate}}</span>
+						<span class = "label">
+							<i class="icon-hammer"></i>
+							{{article.label}}
+						</span>
+					</div>
+				</div>
+				<div class="article-content">
+					{{@article.content}}
+				</div>
+				{{if userInfo}}
+					<div class = "like-wraper">
+						<a id="like" 
+						style="{{islike?'color:red;':';'}}" 
+						href="/home/article-like?uid={{userInfo._id.toString()}}&aid={{article._id.toString()}}">&#10084;</a>
+					</div>
+				{{/if}}
+				<div class="article-comment">
+				{{if userInfo}}
+					<h4>评论</h4>
+					<form class="comment-form" action = "/home/comment-new" method = "post">
+						<textarea class="comment" name = "content"></textarea>
+						<input type = "hidden" name = "aid" value = {{article._id.toString()}}>
+						<div class="items">
+							<input type="submit" value="提交">
+						</div>
+					</form>
+					{{else}}
+						<div><h2>登录后可对文章进行评论！</h2></div>
+					{{/if}}
+
+					<!-- 是否定位到最底部（新增评论的时候） -->
+					{{if newcommentflags}}
+						<div class="comment-list" id = "to-footer">
+					{{else}}
+						<div class="comment-list"">
+					{{/if}}
+
+					<!-- 评论列表 -->
+					{{each comments}}
+						<div class="mb10">
+							<div class="comment-header">
+								<!-- 头像 -->
+								<a class="comment-header-avatar" href="/home/userinfo?id={{$value.uid.toString()}}">
+									<img " width="50" height="50" class="author-avatar" alt="author avatar" src="{{$value.authoravatar_url}}">
+								</a>
+								<!-- 用户名 -->
+								<a class="comment-header-login" href="/home/userinfo?id={{$value.uid.toString()}}">{{$value.authorlogin}}</a>
+								<!-- 用户url -->
+								<a class="comment-header-url" href="{{$value.authorhtml_url}}">{{$value.authorhtml_url}}</a>
+							</div>
+							<div class="comment-content">
+								{{@$value.content}}
+							</div>
+							<div>
+								<span class="comment-header-time">{{$value.time}}</span>
+								{{if userInfo._id.toString() == $value.uid.toString()}}
+									<a class="comment-tooter-del" href="/home/comment-del?id={{$value._id.toString()}}&aid={{article._id.toString()}}">删除</a>
+								{{/if}}
+							</div>
+						</div>
+					{{/each}}
+						<!-- 分页开始 -->
+						<div class="page-switch">
+							{{if pageinfo.page > 1}}
+								<a href="/home/article?id={{article._id.toString()}}&newcommentflags=true&page={{pageinfo.page - 1}}">
+									上一页
+								</a>
+							{{/if}}
+							<% for(var i = 0; i < pageinfo.display.length; i++) { %>
+								<a class="{{pageinfo.page == pageinfo.display[i]? 'active' : 'noactive'}}" href="/home/article?id={{article._id.toString()}}&newcommentflags=true&page={{pageinfo.display[i]}}">{{pageinfo.display[i]}}</a>
+							<% } %>
+							{{if pageinfo.page < pageinfo.pages}}
+								<a href="/home/article?id={{article._id.toString()}}&newcommentflags=true&page={{pageinfo.page - 0 + 1}}">
+									下一页
+								</a>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 右侧信息栏 -->
+			<div class = "right-container">
+				<div class = "article-right-userinfo">
+					<img class="blog-logo" src="{{userinfoarticle.avatar_url}}" alt="">
+					<div class="blog-author">
+						<span style = "color: black">{{article.authorlogin}}</span>
+					</div>
+					<div class = "blog-msg">
+						<span>
+							<a href = "{{userinfoarticle.html_url}}">{{userinfoarticle.html_url}}</a>
+						</span>
+					</div>
+					<ul class="social-network">
+						<li style="display: inline-block;">
+							<a href="#" title="主页">
+								<i class="icon-home"></i>
+							</a>
+						</li>
+						<li style="display: inline-block;">
+							<a target="_blank" href="#" title="用户信息">
+								<i class="icon-info"></i>
+							</a>
+						</li>
+						<li id="addQQ" style="display: inline-block;">
+							<a href="#" title="添加 QQ 好友">
+								<i class="icon-qq"></i>
+							</a>
+						</li>
+						<li id="addFriend" style="display: inline-block;">
+							<a target="_blank" href="#" title="添加好友">
+								<i class="icon-plus"></i>
+							</a>
+						</li>
+						<li id="sendMsg" style="display: inline-block;">
+							<a href="#" target="_blank" title="发送消息">
+								<i class="icon-envelop"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<form action="#" class="form-search">
+					<input name="q" type="text" placeholder="搜索...">
+					<button type="submit" class="button-search">搜索</button>
+				</form>
+				{{include './common/label.art'}}
+			</div>
+		</div>
+{{/block}}
+
+{{block 'script'}}
+	<script src="/lib/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script>
+		document.getElementById("comment-footer-reply").onclick = 
+		function(){
+			alert(1);
+		};
+	</script>
+	 <script>         
+		document.getElementById("like").onclick = function () {
+			if(document.getElementById("like").style.color == "red"){
+				document.getElementById("like").style.color="gray";  
+			}
+			else{
+				document.getElementById("like").style.color="red";     
+			}   
+		};
+    </script>
+{{/block}}
+	

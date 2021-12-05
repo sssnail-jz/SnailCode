@@ -1,0 +1,62 @@
+{{extend './common/layout.art'}}
+
+{{block 'css'}}
+	<link rel="stylesheet" href="/home/css/index.css">
+	<link rel="stylesheet" href="/home/css/article-new.css">
+	
+{{/block}}
+
+{{block 'main'}}
+
+	{{include './common/header.art'}}
+	
+	<div id = "index-article-new">
+		
+		<div class = "content-container">
+			<textarea form = "form-container" 
+			class="form-control" 
+			name="content" 
+			id="editor">
+			</textarea>
+		</div>
+
+		<div class = "ope-contatiner">
+			<div class = "ope-contatiner-inner">
+				<form id="form-container" enctype="multipart/form-data" action="/home/article-submit" method="post">
+					<div class="form-group">
+						<span>文章标题：</span>
+						<input type="text" name="title" class="form-control" placeholder="1-20个字符">
+					</div>
+					<div class="form-group">
+						<span>作者：</span>
+						<!-- 当前登录用户的ID进行关联 -->
+						<input type="text" name="author" value="{{@userInfo.login}}" class="form-control" readonly>
+					</div>
+					<div class="form-group">
+						<span>发表时间：</span>
+						<input type="date" name="publishDate" class="form-control">
+					</div>
+					<div class="form-group">
+						<span>标签：</span>
+						<select name = "label">
+							<option value="C#">C#</option>
+							<option value="C/CPP">C/CPP</option>
+							<option value="QT">QT</option>
+							<option value="HTML/CSS/JS">HTML/CSS/JS</option>
+							<option value="AJAX">AJAX</option>
+							<option value="NodeJS">NodeJS</option>
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+{{/block}}
+
+{{block 'script'}}
+	<script src="/lib/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+		CKEDITOR.replace( 'editor' );
+    </script>
+{{/block}}
