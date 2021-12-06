@@ -310,7 +310,7 @@ body{
 }
 
 .article-content pre{
-	overflow-x:scroll;
+	overflow-x:auto;
 }
 
 .article-content blockquote {

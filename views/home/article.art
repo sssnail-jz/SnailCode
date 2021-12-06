@@ -163,7 +163,7 @@
 			alert(1);
 		};
 	</script>
-	 <script>         
+	<script>         
 		document.getElementById("like").onclick = function () {
 			if(document.getElementById("like").style.color == "red"){
 				document.getElementById("like").style.color="gray";  
